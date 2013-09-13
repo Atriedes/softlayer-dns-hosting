@@ -1,0 +1,52 @@
+{
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
+	"repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.cartalyst.com"
+        },
+        {
+        	"type": "git",
+        	"url": "https://github.com/shift31/softlayer-api-php-client"
+        }
+    ],
+	"require": {
+		"laravel/framework": "4.0.*",
+		"cartalyst/sentry": "2.0.*",
+		"teepluss/theme": "dev-master",
+		"shift31/softlayer-api-php-client": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		],
+		"psr-0": {
+			"Codelastic": "app/lib"
+		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}
